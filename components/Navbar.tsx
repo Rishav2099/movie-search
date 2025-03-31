@@ -1,8 +1,14 @@
 'use client'
 
 import React, { FormEvent, useState } from "react";
+import { Movie } from "@/types";
+import { Dispatch, SetStateAction } from "react";
 
-const Navbar = ({ setMovies }: { setMovies: (movies: any[]) => void }) => {
+interface NavbarProps {
+  setMovies: Dispatch<SetStateAction<Movie[]>>;
+}
+
+const Navbar = ({ setMovies }: NavbarProps) => {
   const [query, setQuery] = useState('');
   const [error, setError] = useState('');
 

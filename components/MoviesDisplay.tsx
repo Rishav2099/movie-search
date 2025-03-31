@@ -3,8 +3,13 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { Movie } from "@/types";
 
-const MoviesDisplay = ({ movies }: { movies: any[] }) => {
+interface MoviesDisplayProps {
+  movies: Movie[];
+}
+
+const MoviesDisplay = ({ movies }: MoviesDisplayProps) => {
   const router = useRouter();
 
   return (
@@ -30,6 +35,8 @@ const MoviesDisplay = ({ movies }: { movies: any[] }) => {
                   className="w-full h-auto max-h-[350px] object-cover rounded-lg hover:opacity-90 transition-opacity duration-300"
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.title}
+                  width={500} // Add width and height for Next.js Image optimization
+                  height={750}
                 />
               </div>
               <h2 className="font-bold text-lg mt-2 text-center text-white line-clamp-2">
