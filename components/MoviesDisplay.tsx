@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const MoviesDisplay = ({ movies }: { movies: any[] }) => {
   const router = useRouter();
@@ -25,7 +26,7 @@ const MoviesDisplay = ({ movies }: { movies: any[] }) => {
               bg-gray-800 bg-opacity-75 backdrop-blur-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out"
             >
               <div className="overflow-hidden rounded-lg">
-                <img
+                <Image
                   className="w-full h-auto max-h-[350px] object-cover rounded-lg hover:opacity-90 transition-opacity duration-300"
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.title}
