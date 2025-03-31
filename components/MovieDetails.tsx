@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 
 interface MovieDetailsProps {
@@ -58,7 +59,7 @@ export default function MovieDetails({
   
     {/* Movie Poster */}
     <div className="relative">
-      <img
+      <Image
         className="w-full max-w-md rounded-xl shadow-xl border border-gray-700"
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt={movie.title}
@@ -104,7 +105,7 @@ export default function MovieDetails({
         {cast.map((actor) => (
           <div key={actor.id} className="flex flex-col items-center min-w-[120px]">
             {actor.profile_path && (
-              <img
+              <Image
                 src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
                 alt={actor.name}
                 className="w-24 h-24 object-cover rounded-full border border-gray-600 shadow-md"
@@ -132,7 +133,7 @@ export default function MovieDetails({
         {movie.production_companies.map((company: { id: React.Key | null | undefined; logo_path: any; name: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined; }) => (
           <div key={company.id} className="flex flex-col items-center">
             {company.logo_path && (
-              <img
+              <Image
                 src={`https://image.tmdb.org/t/p/w92${company.logo_path}`}
                 alt={'company.name'}
                 className="w-16 h-16 rounded-lg border border-gray-600 shadow-md"
@@ -151,7 +152,7 @@ export default function MovieDetails({
         <div className="flex flex-wrap gap-4 justify-center mt-3 bg-gray-800 p-4 rounded-lg shadow-lg">
           {providers.map((provider) => (
             <div key={provider.provider_id} className="flex flex-col items-center">
-              <img
+              <Image
                 src={`https://image.tmdb.org/t/p/w92${provider.logo_path}`}
                 alt={provider.provider_name}
                 className="w-16 h-16 rounded-lg border border-gray-600 shadow-md"
